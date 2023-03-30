@@ -1,2 +1,3 @@
-{% load i18n %}
+{% raw %}{% load i18n %}
 {% blocktrans %}The social account has been connected.{% endblocktrans %}
+{% endraw %}
