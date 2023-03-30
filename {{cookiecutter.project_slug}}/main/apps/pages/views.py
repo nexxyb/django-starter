@@ -5,5 +5,5 @@ from django.shortcuts import render, redirect
 from django.urls import reverse, reverse_lazy
 
 class IndexView(TemplateView):
-    template_name= 'home/index.html'
+    template_name= 'pages/index.html'
     

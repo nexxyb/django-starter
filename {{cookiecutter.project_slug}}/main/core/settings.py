@@ -19,7 +19,7 @@ DEBUG = os.environ.get("DEBUG")
 ASSETS_ROOT = os.getenv('ASSETS_ROOT', '/static/assets') 
 
 # load production server from .env
-ALLOWED_HOSTS        = ['localhost']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 # Application definition
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
@@ -32,7 +32,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     "django_htmx",
     'apps.authentication',
-    'apps.home',
+    'apps.pages',
     "django.forms",
     "crispy_forms",
     "crispy_bootstrap5",
@@ -238,3 +238,7 @@ EMAIL_PORT = 587
 DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_USER')
 EMAIL_HOST_USER = os.environ.get('EMAIL_USER')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASSWORD')
+
+GOOGLE_ANALYTICS = {
+    'google_analytics_id': 'id-here',
+}

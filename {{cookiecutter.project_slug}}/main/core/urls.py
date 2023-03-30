@@ -6,5 +6,5 @@ urlpatterns = [
     path('', include('apps.authentication.urls')),
     path('accounts/', include('allauth.urls')),
     re_path('djga/', include('google_analytics.urls')),
-    path("", include("apps.home.urls", namespace='home')),
+    path("pages", include("apps.pages.urls", namespace='pages')),
 ]

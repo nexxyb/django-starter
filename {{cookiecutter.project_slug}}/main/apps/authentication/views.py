@@ -1,13 +1,12 @@
+# -*- encoding: utf-8 -*-
+"""
+Copyright (c) 2019 - present AppSeed.us
+"""
 
 # Create your views here.
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
-from .forms import LoginForm, SignUpForm, User
-from django.views.generic.edit import UpdateView, CreateView
-from django.contrib.auth.mixins import LoginRequiredMixin
-from django.views import generic
-from django.urls import reverse, reverse_lazy
-
+from .forms import LoginForm, SignUpForm
 
 def login_view(request):
     form = LoginForm(request.POST or None)
@@ -22,8 +21,10 @@ def login_view(request):
             user = authenticate(email=email, password=password)
             if user is not None:
                 login(request, user)
-                return redirect("/")
-                
+                if user.is_apm:
+                    return redirect("/")
+                elif user.is_pm:
+                    return redirect("dashboard")
             else:
                 msg = 'Invalid credentials'
         else:
@@ -56,6 +57,3 @@ def register_user(request):
 
     return render(request, "accounts/register.html", {"form": form, "msg": msg, "success": success})
     
- 
-
-
