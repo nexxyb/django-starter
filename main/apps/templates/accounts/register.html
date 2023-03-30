@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block title %}Signup{% endblock %}
+
+{% block content %}
+  <div class="container my-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header">{{ title }}</div>
+          <div class="card-body">
+            <form method="POST">
+              {% csrf_token %}
+              
+              <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                {{form.email}}
+                {% if form.errors.email %}
+                  <div class="invalid-feedback">
+                    {{ form.errors.email }}
+                  </div>
+                {% endif %}
+              </div>
+              <div class="mb-3">
+                <label for="password1" class="form-label">Password</label>
+                {{ form.password1 }}
+                {% if form.errors.password1 %}
+                  <div class="invalid-feedback">
+                    {{ form.errors.password1 }}
+                  </div>
+                {% endif %}
+              </div>
+              <div class="mb-3">
+                <label for="password2" class="form-label">Confirm Password</label>
+                {{ form.password2 }}
+                {% if form.errors.password2 %}
+                  <div class="invalid-feedback">
+                    {{ form.errors.password2 }}
+                  </div>
+                {% endif %}
+              </div>
+              <button type="submit" class="btn btn-primary">Signup</button>
+            </form>
+            <hr>
+            <p>Already have an account? <a href="{% url 'login' %}">Login here.</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

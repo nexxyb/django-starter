@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+  <div class="container my-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header">{{ title }}</div>
+          <div class="card-body">
+            <p>
+                {% if msg %}
+                    {{ msg | safe }}
+                {% endif %}                                     
+            </p>
+            <form action="" method="post">
+                {% csrf_token %}
+               <div class="form-group">
+                {{ form.email }}
+               </div>
+               <div class="form-group">
+                {{ form.password }}
+               </div>
+               <div class="form-group">
+                  <button class="btn btn-primary btn-block" type="submit">Login</button>
+               </div>
+            </form>
+            <hr>
+            <p>Don't have an account? <a href="{% url 'register' %}">Sign Up.</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

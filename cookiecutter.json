@@ -1,0 +1,10 @@
+{
+  "project_name": "My Awesome Project",
+  "project_slug": "{{ cookiecutter.project_name.lower()|replace(' ', '_')|replace('-', '_')|replace('.', '_')|trim() }}",
+  "description": "Behold My Awesome Project!",
+  "domain_name": "example.com",
+  "email": "platinexdesigns@gmail.com",
+  "use_drf": "n",
+  "use_celery": "n"
+  
+}
